@@ -65,11 +65,13 @@
         main {
             margin-left: 220px;
             padding: 20px;
+            text-align: center;
         }
 
         h2 {
             font-size: 28px;
             margin-bottom: 20px;
+            text-align: center;
         }
 
         .description {
@@ -80,10 +82,61 @@
             text-align: center;
         }
 
-        .main-image {
-            display: block;
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
             margin: 0 auto;
-            max-width: 100%;
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-dots span {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        .carousel-dots span.active {
+            background-color: #717171;
         }
     </style>
 </head>
@@ -105,8 +158,55 @@
         <div class="description">
             <p>Biblioteca Smeraldo<br>um lugar que transborda magia através das páginas</p>
         </div>
-        <img src="imagem1.jpg" alt="Imagem Principal" class="main-image">
+        
+        <!-- Carrossel de Imagens -->
+        <div class="carousel-container">
+            <img src="imagem1.jpg" alt="Imagem 1" class="carousel-image active">
+            <img src="imagem2.jpg" alt="Imagem 2" class="carousel-image">
+            <img src="imagem3.jpg" alt="Imagem 3" class="carousel-image">
+            
+            <!-- Controles do Carrossel -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots do Carrossel -->
+        <div class="carousel-dots">
+            <span class="dot active" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
+        </div>
     </main>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function setSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-image");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
 </body>
 </html>
+
 
