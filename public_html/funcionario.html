@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Smeraldo - Funcionários</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #75bcc9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            display: inline;
+            font-size: 24px;
+            color: white;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        nav {
+            background-color: #6fabbc;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 100px;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px 20px;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-container {
+            background-color: #6fabbc;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            background-color: #e3e3e3;
+        }
+
+        .login-container button {
+            background-color: #375d69;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2a4a54;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function validarFormulario() {
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("password").value;
+            let emailErro = document.getElementById("email-erro");
+            let senhaErro = document.getElementById("senha-erro");
+            let emailValido = true;
+            let senhaValida = true;
+
+            // Limpa mensagens anteriores
+            emailErro.textContent = "";
+            senhaErro.textContent = "";
+
+            // Validação do e-mail
+            if (!email.match(/^\S+@\S+\.\S+$/)) {
+                emailErro.textContent = "Por favor, insira um e-mail válido.";
+                emailValido = false;
+            }
+
+            // Validação da senha (mínimo de 6 caracteres)
+            if (senha.length < 6) {
+                senhaErro.textContent = "A senha deve ter pelo menos 6 caracteres.";
+                senhaValida = false;
+            }
+
+            return emailValido && senhaValida; // O formulário só é enviado se ambos forem válidos
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo Biblioteca Smeraldo" class="logo">
+        <h1>BIBLIOTECA SMERALDO</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="livros.html">Livros</a></li>
+            <li><a href="funcionarios.html">Funcionários</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Funcionários</h2>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form action="login.php" method="POST" onsubmit="return validarFormulario();">
+                <label for="email">E-Mail</label>
+                <input type="text" id="email" name="email" placeholder="Seu nome">
+                <div id="email-erro" class="error-message"></div>
+                
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Sua senha">
+                <div id="senha-erro" class="error-message"></div>
+                
+                <button type="submit">LOGIN</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

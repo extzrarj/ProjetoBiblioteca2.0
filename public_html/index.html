@@ -74,18 +74,20 @@
             text-align: center;
         }
 
+        /* Espaçamento adicional */
         .description {
             background-color: #e0e0e0;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 40px;
+            margin-top: 50px;
             text-align: center;
         }
 
         .carousel-container {
             position: relative;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 50px auto 0 auto;
         }
 
         .carousel-image {
@@ -147,10 +149,9 @@
     </header>
     <nav>
         <ul>
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Livros</a></li>
-            <li><a href="#">Funcionários</a></li>
-            <li><a href="#">Aluguel</a></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="livros.html">Livros</a></li>
+            <li><a href="funcionario.html">Funcionários</a></li>
         </ul>
     </nav>
     <main>
@@ -170,43 +171,7 @@
             <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
 
-        <!-- Dots do Carrossel -->
-        <div class="carousel-dots">
-            <span class="dot active" onclick="setSlide(1)"></span>
-            <span class="dot" onclick="setSlide(2)"></span>
-            <span class="dot" onclick="setSlide(3)"></span>
-        </div>
-    </main>
+  
 
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function changeSlide(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function setSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("carousel-image");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
-        }
-    </script>
-</body>
-</html>
 
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Smeraldo - Livros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #75bcc9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            display: inline;
+            font-size: 24px;
+            color: white;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        nav {
+            background-color: #6fabbc;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 100px;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-bottom: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            padding: 10px 20px;
+        }
+
+        main {
+            margin-left: 220px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .search-bar {
+            padding: 10px;
+            width: 400px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-icon {
+            vertical-align: middle;
+            margin-left: -30px; /* Ajustado para alinhar melhor */
+            width: 20px; /* Lupa menor */
+            height: 20px; /* Lupa menor */
+        }
+
+        .book-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .book {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .book img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .book-details {
+            text-align: left;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.jpg" alt="Logo Biblioteca Smeraldo" class="logo">
+        <h1>BIBLIOTECA SMERALDO</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="livros.html">Livros</a></li>
+            <li><a href="funcionario.html">Funcionários</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Livros</h2>
+        <div class="search-container">
+            <input type="text" placeholder="Que livro você está buscando?" class="search-bar">
+            <img src="lupa.png" alt="Lupa" class="search-icon">
+        </div>
+        <div class="book-container">
+            <div class="book">
+                <img src="livro1.jpg" alt="Livro 1">
+                <div class="book-details">
+                    <ul>
+                        <li><b>Nome do Autor:</b> J.K. Rowling</li>
+                        <li><b>Título do Obra:</b> Harry Potter e o Prisioneiro de Azkaban</li>
+                        <li><b>Data de Lançamento:</b> 8 de julho de 1999 (Reino Unido); 21 de abril de 2000 (Brasil)</li>
+                        <li><b>Classificação Indicativa:</b> Livre para todas as idades</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="book">
+                <img src="livro2.jpg" alt="Livro 2">
+                <div class="book-details">
+                    <ul>
+                        <li><b>Nome do Autor:</b> Markus Zusak</li>
+                        <li><b>Título do Obra:</b> A Menina que Roubava Livros</li>
+                        <li><b>Data de Lançamento:</b> 2005</li>
+                        <li><b>Classificação Indicativa:</b> Não recomendado para menores de 12 anos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
